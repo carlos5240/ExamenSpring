@@ -1,0 +1,4 @@
+create database db_usuarios_app character set utf8;
+create user root@'localhost';
+set password for 'root'@'localhost' = PASSWORD('sasa');
+grant all on db_usuarios_app.* to 'root'@'localhost' ;
