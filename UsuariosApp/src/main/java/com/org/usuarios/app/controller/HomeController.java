@@ -30,9 +30,9 @@ public class HomeController {
 	@GetMapping({"/","/index"})
 	public String index(Authentication authentication, Model model) {
 		Usuario usuario = usuarioService.findByUsername(authentication.getName());
-		
+		model.addAttribute("usuario",usuario);
 		if(new Date().after(usuario.getFechaModificacion())) {
-			model.addAttribute("usuario",usuario);
+			
 			return "/nuevoPassword";
 		}
 		
@@ -49,8 +49,8 @@ public class HomeController {
 		usuario.setPassword(passwordEncoder.encode(request.getParameter("password")));
         usuario=usuarioService.save(usuario);	
         
-        model.addAttribute("usuario", usuario);
-		return "/index";
+        model.addAttribute("usuario",usuario);
+		return "redirect:/index";
 	}
 
 }

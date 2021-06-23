@@ -41,7 +41,7 @@
 			</div>
 		</nav>		
 		<div class="container py-4"> 
-  <h1>Buenvenido ${usuario.username}!!</h1>
+  <h1 th:text="${usuario.login}" ></h1>
   <p> Has iniciado sesion correctamente</p>
   </div>
 </body>
